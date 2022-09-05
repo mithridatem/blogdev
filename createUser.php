@@ -3,6 +3,7 @@
     $message = "";
     //import des ressources
     include './utils/bddConnect.php';
+    include './utils/functions.php';
     include './model/utilisateur.php';
     include './view/view_header.php';
     include './view/view_navbar.php';
@@ -14,11 +15,11 @@
         if(!empty($_POST['nom_util']) AND !empty($_POST['prenom_util']) AND
         !empty($_POST['mail_util']) AND !empty($_POST['password_util'])){
             //stocker les valeurs POST dans des variables
-            $nom = $_POST['nom_util'];
-            $prenom = $_POST['prenom_util'];
-            $mail = $_POST['mail_util'];
+            $nom = cleanInput($_POST['nom_util']);
+            $prenom = cleanInput($_POST['prenom_util']);
+            $mail = cleanInput($_POST['mail_util']);
             //version bcrypt
-            $password = password_hash($_POST['password_util'], PASSWORD_DEFAULT);
+            $password = password_hash(cleanInput($_POST['password_util']), PASSWORD_DEFAULT);
             //version md5
             //$password = md5($_POST['password_util']);
             createUserV3($bdd,$nom, $prenom, $mail, $password);
