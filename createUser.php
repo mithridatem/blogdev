@@ -17,9 +17,14 @@
             $nom = $_POST['nom_util'];
             $prenom = $_POST['prenom_util'];
             $mail = $_POST['mail_util'];
-            $password = $_POST['password_util'];
-            createUser($bdd,$nom, $prenom, $mail, $password);
+            //version bcrypt
+            $password = password_hash($_POST['password_util'], PASSWORD_DEFAULT);
+            //version md5
+            //$password = md5($_POST['password_util']);
+            createUserV3($bdd,$nom, $prenom, $mail, $password);
             $message = "le compte $nom à été ajouté en BDD";
+
+            //header('Location: ./createUser.php?nameCreate=');
         }
         //test si un ou plusieurs champs ne sont pas remplis
         else{
@@ -30,6 +35,10 @@
     else{
         $message = "Pour ajouter un utilisateur veuillez cliquer sur ajouter";
     }
+   /*  //message si utilisateur à été ajouté
+    if(isset($_GET['nameCreate'])){
+        $message = 'le compte à été ajouté en BDD';
+    } */
     //affichage des erreurs
     echo $message;
     include './view/view_footer.php';
