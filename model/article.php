@@ -35,4 +35,23 @@
             die('Erreur : '.$e->getMessage());
         }
     }
+    //function qui retourne la liste de tous les articles
+    function getAllArticle($bdd):?array{
+        try {
+            //stocker et évaluer la requête
+            $req = $bdd->prepare("SELECT id_art, nom_art, contenu_art,
+            date_art FROM article");
+            //exécuter la requête
+            $req->execute();
+            //stocker dans $data le résultat de la requête (tableau associatif)
+            $data = $req->fetchAll(PDO::FETCH_ASSOC);
+            //retourner le tableau associatif
+            return $data;
+        } 
+        catch (Exception $e) 
+        {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+        }
+    }
 ?>
