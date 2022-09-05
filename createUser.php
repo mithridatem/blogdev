@@ -43,10 +43,6 @@
     else{
         $message = "Pour ajouter un utilisateur veuillez cliquer sur ajouter";
     }
-   /*  //message si utilisateur à été ajouté
-    if(isset($_GET['nameCreate'])){
-        $message = 'le compte à été ajouté en BDD';
-    } */
     //affichage des erreurs
     echo $message;
     include './view/view_footer.php';
