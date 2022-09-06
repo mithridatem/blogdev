@@ -4,7 +4,6 @@
     <p><input type="text" name="nom_art"></p>
     <p>Saisir le contenu de l'article</p>
     <p><textarea name="contenu_art"></textarea></p>
-    <p>Saisir date l'article</p>
-    <p><input type="date" name="date_art"></p>
-    <p><input type="submit" value="ajouter" name="submit"></p>
-</form>
+    <p><select name="id_cat">
+        
+    
