@@ -40,12 +40,13 @@
     if(isset($_POST['submit'])){
         //test si les champs input sont remplis
         if(!empty($_POST['nom_art']) AND !empty($_POST['contenu_art']) AND
-        !empty($_POST['date_art'])){
+        !empty($_POST['date_art']) AND !empty($_POST['id_cat'])){
             //stocker les valeurs POST dans des variables
             $nomArticle = cleanInput($_POST['nom_art']);
             $contenuArticle = cleanInput($_POST['contenu_art']);
             $dateArticle = cleanInput($_POST['date_art']);
-            createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle);
+            $idCat = cleanInput($_POST['id_cat']);
+            createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle, $idCat);
             //message de confirmation
             $message = "l'article $nomArticle à été ajouté en BDD";
         }

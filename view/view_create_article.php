@@ -5,5 +5,5 @@
     <p>Saisir le contenu de l'article</p>
     <p><textarea name="contenu_art"></textarea></p>
     <p><select name="id_cat">
-        
+
     

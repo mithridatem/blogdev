@@ -3,7 +3,8 @@
     function getAllCategory($bdd){
         try {
             //stocker et évaluer la requête
-            $req = $bdd->prepare("SELECT id_cat, nom_cat FROM categorie ORDER BY nom_cat ASC");
+            $req = $bdd->prepare("SELECT id_cat, nom_cat FROM 
+            categorie ORDER BY nom_cat ASC");
             //exécuter la requête
             $req->execute();
             //stocker dans $data le résultat de la requête (tableau associatif)

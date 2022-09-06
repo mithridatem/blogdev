@@ -1,11 +1,12 @@
 <?php
-    function createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle){
+    function createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle, $idCat){
         try {
             $req = $bdd->prepare("INSERT INTO article
-            (nom_art, contenu_art, date_art)VALUES(?, ?, ?)");
+            (nom_art, contenu_art, date_art, id_cat)VALUES(?, ?, ?, ?)");
             $req->bindParam(1, $nomArticle, PDO::PARAM_STR);
             $req->bindParam(2, $contenuArticle, PDO::PARAM_STR);
             $req->bindParam(3, $dateArticle, PDO::PARAM_STR);
+            $req->bindParam(4, $idCat, PDO::PARAM_INT);
             $req->execute();
         } 
         catch (Exception $e) 
