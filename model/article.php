@@ -54,4 +54,32 @@
             die('Erreur : '.$e->getMessage());
         }
     }
+    //function qui retourne la liste triée par date (asc ou desc)
+    function getAllArticleByFilter($bdd, $filter):?array{
+        try {
+            //cas ou $filter vaut 'asc'
+            if($filter == 'asc'){
+                //stocker et évaluer la requête
+                $req = $bdd->prepare("SELECT id_art, nom_art, contenu_art,
+                date_art FROM article ORDER BY date_art ASC");
+            }
+            //cas ou $filter vaut 'desc'
+            else{
+                //stocker et évaluer la requête
+                $req = $bdd->prepare("SELECT id_art, nom_art, contenu_art,
+                date_art FROM article ORDER BY date_art DESC");
+            }
+            //exécuter la requête
+            $req->execute();
+            //stocker dans $data le résultat de la requête (tableau associatif)
+            $data = $req->fetchAll(PDO::FETCH_ASSOC);
+            //retourner le tableau associatif
+            return $data;
+        } 
+        catch (Exception $e) 
+        {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+        }
+    }
 ?>
