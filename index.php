@@ -9,6 +9,9 @@
 
     //routeur
     switch ($path) {
+        case '/blog/':
+            include './home.php';
+            break;
         case '/blog/showAllArticle':
             include './controller/ctrl_show_all_article.php';
             break;
