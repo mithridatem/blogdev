@@ -32,6 +32,7 @@
     echo '</select></p>
         <p>Saisir date l\'article</p>
         <p><input type="date" name="date_art"></p>
+        <input type="file" name="img_art">
         <p><input type="submit" value="ajouter" name="submit"></p>
         </form>';  
     
@@ -46,9 +47,32 @@
             $contenuArticle = cleanInput($_POST['contenu_art']);
             $dateArticle = cleanInput($_POST['date_art']);
             $idCat = cleanInput($_POST['id_cat']);
-            createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle, $idCat);
-            //message de confirmation
-            $message = "l'article $nomArticle à été ajouté en BDD";
+            $exist = getAllArticleByValue($bdd, $nomArticle, $dateArticle);
+            //test si l'article n'existe pas (doublon)
+            if(empty($exist)){
+                //test si on à une image
+                if(isset($_FILES['img_art']) AND $_FILES['img_art']['name'] !=""){
+                    //stockage des valeurs du fichier importé
+                    $name = $_FILES['img_art']['name'];
+                    $tmpName = $_FILES['img_art']['tmp_name'];
+                    $size = $_FILES['img_art']['size'];
+                    $error = $_FILES['img_art']['error'];
+                    $ext = get_file_extension($_FILES['img_art']['name']);
+                    $img = './asset/image/'.$nomArticle.$dateArticle.'.'.$ext;
+                    //appeler la fonction pour déplacer et renommer un fichier
+                    move_uploaded_file($tmpName, $img);
+                }
+                //test si on n'a pas d'image (image par défaut)
+                else{
+                    $img = './asset/image/defaut.png';
+                }
+                createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle, $idCat, $img);
+                //message de confirmation
+                $message = "l'article $nomArticle à été ajouté en BDD";
+            }
+            else{
+                $message = "Article : $nomArticle existe déja  veuillez changer le nom";
+            }
         }
         //test si un ou plusieurs champs ne sont pas remplis
         else{

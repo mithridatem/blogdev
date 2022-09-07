@@ -1,6 +1,6 @@
 <?php
     //fonction qui retourne la liste des categories
-    function getAllCategory($bdd){
+    function getAllCategory($bdd):?array{
         try {
             //stocker et évaluer la requête
             $req = $bdd->prepare("SELECT id_cat, nom_cat FROM 
