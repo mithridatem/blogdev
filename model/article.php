@@ -1,4 +1,5 @@
 <?php
+    //fonction pour ajouter un article (nom, contenu, date, categorie, image)
     function createArticle($bdd,$nomArticle, $contenuArticle, $dateArticle, $idCat, $img){
         try {
             $req = $bdd->prepare("INSERT INTO article

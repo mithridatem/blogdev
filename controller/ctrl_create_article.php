@@ -56,9 +56,23 @@
                     $size = $_FILES['img_art']['size'];
                     $error = $_FILES['img_art']['error'];
                     $ext = get_file_extension($_FILES['img_art']['name']);
-                    $img = './asset/image/'.$nomArticle.$dateArticle.'.'.$ext;
-                    //appeler la fonction pour déplacer et renommer un fichier
-                    move_uploaded_file($tmpName, $img);
+                    //test de la taille si plus grand que 5 Mo (5*1024*1024 octes)
+                    if($size>5*1024*1024){
+                        $message = "le fichier est trop grand taille max 5Mo";
+                    }
+                    //test si il à la bonne taille
+                    else{
+                        //test si le format est bon (jpg, jpeg)
+                        if(strtolower($ext)=='jpg' OR strtolower($ext)=='jepg' OR strtolower($ext)=='png'){
+                            $img = './asset/image/'.$nomArticle.$dateArticle.'.'.$ext;
+                            //appeler la fonction pour déplacer et renommer un fichier
+                            move_uploaded_file($tmpName, $img);
+                        }
+                        //test sinon le format n'est pas bon
+                        else{
+                            $message = "le fichier n'est pas au bon format";
+                        }
+                    }
                 }
                 //test si on n'a pas d'image (image par défaut)
                 else{
