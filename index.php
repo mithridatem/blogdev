@@ -24,6 +24,9 @@
         case '/blog/createArticleCode':
             include './controller/ctrl_create_article_code.php';
             break;
+        case '/blog/createCategory':
+            include './controller/ctrl_create_category.php';
+            break;
         default:
             include './error.php';
             break;
