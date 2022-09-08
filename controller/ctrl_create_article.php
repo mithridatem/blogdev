@@ -63,7 +63,7 @@
                     //test si il à la bonne taille
                     else{
                         //test si le format est bon (jpg, jpeg)
-                        if(strtolower($ext)=='jpg' OR strtolower($ext)=='jepg' OR strtolower($ext)=='png'){
+                        if(strtolower($ext)=='jpg' OR strtolower($ext)=='jpeg' OR strtolower($ext)=='png'){
                             $img = './asset/image/'.$nomArticle.$dateArticle.'.'.$ext;
                             //appeler la fonction pour déplacer et renommer un fichier
                             move_uploaded_file($tmpName, $img);

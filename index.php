@@ -1,6 +1,9 @@
 <?php
     include './utils/bddConnect.php';
     include './utils/functions.php';
+    
+    //utilisation de session_start(pour gérer la connexion au serveur)
+    session_start();
 
     //Analyse de l'URL avec parse_url() et retourne ses composants
     $url = parse_url($_SERVER['REQUEST_URI']);
@@ -11,6 +14,12 @@
     switch ($path) {
         case '/blog/':
             include './home.php';
+            break;
+        case '/blog/connexion':
+            include './controller/ctrl_connexion.php';
+            break;
+        case '/blog/deconnexion':
+            include './controller/ctrl_deconnexion.php';
             break;
         case '/blog/showAllArticle':
             include './controller/ctrl_show_all_article.php';

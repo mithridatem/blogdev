@@ -1,43 +1,49 @@
 <?php
-    $namePage = "ajouter une categorie";
-    $message = "";
+    //test si l'utilisateur est connecté
+    if(isset($_SESSION['connected'])){
+        $namePage = "ajouter une categorie";
+        $message = "";
+            //import des ressources
+        include './model/categorie.php';
+        include './view/view_header.php';
+        include './view/view_navbar.php';
+        include './view/view_create_category.php';
 
-    //import des ressources
-    include './model/categorie.php';
-    include './view/view_header.php';
-    include './view/view_navbar.php';
-    include './view/view_create_category.php';
-
-    //test si le bouton submit est cliqué 
-    if(isset($_POST['submit'])){
-        //test si le champ input nom_cat est rempli
-        if(!empty($_POST['nom_cat'])){
-            //stocker la valeur $_POST['nom_cat'] et nettoyer le code
-            $nom = cleanInput($_POST['nom_cat']);
-            //stocker le resultat de la requête (cherche si elle existe)
-            $exist = getCatByName($bdd, $nom);
-            //tester si doublon (n'existe pas)
-            if(empty($exist)){
-                //ajouter la catégorie en BDD
-                createCategory($bdd, $nom);
-                $message = 'La catgeorie '.$nom.' a été ajouté en BDD';
+        //test si le bouton submit est cliqué 
+        if(isset($_POST['submit'])){
+            //test si le champ input nom_cat est rempli
+            if(!empty($_POST['nom_cat'])){
+                //stocker la valeur $_POST['nom_cat'] et nettoyer le code
+                $nom = cleanInput($_POST['nom_cat']);
+                //stocker le resultat de la requête (cherche si elle existe)
+                $exist = getCatByName($bdd, $nom);
+                //tester si doublon (n'existe pas)
+                if(empty($exist)){
+                    //ajouter la catégorie en BDD
+                    createCategory($bdd, $nom);
+                    $message = 'La catgeorie '.$nom.' a été ajouté en BDD';
+                }
+                //test existe déja
+                else{
+                    $message = 'la catégorie '.$nom.' existe déja';
+                }
             }
-            //test existe déja
+            //si le champ est vide
             else{
-                $message = 'la catégorie '.$nom.' existe déja';
+                $message = "Veuillez remplir le champ nom";
             }
         }
-        //si le champ est vide
+        //test quand on lance la page
         else{
-            $message = "Veuillez remplir le champ nom";
+            $message = "Pour ajouter une category cliquer sur ajouter";
         }
+        //affichage du messsage
+        echo $message;
+        //import du footer
+        include './view/view_footer.php';
     }
-    //test quand on lance la page
+    //si non connecté
     else{
-        $message = "Pour ajouter une category cliquer sur ajouter";
+        header('Location: ./');
     }
-    //affichage du messsage
-    echo $message;
-    //import du footer
-    include './view/view_footer.php';
 ?>
