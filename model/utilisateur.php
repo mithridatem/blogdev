@@ -69,6 +69,23 @@
             die('Erreur : '.$e->getMessage());
         }
     }
+    //fonction qui retourne un tableau associatif d'un utilisateur null (ex :?string)
+    function activeUserByMail($bdd, $mail):void{
+        try {
+            //stocker et évaluer la requête
+            $req = $bdd->prepare("UPDATE FROM utilisateur SET validate_util =1 
+            WHERE mail_util = ?");
+            //binder la valeur $mail au ?
+            $req->bindParam(1, $mail, PDO::PARAM_STR);
+            //exécuter la requête
+            $req->execute();
+        } 
+        catch (Exception $e) 
+        {
+            //affichage d'une exception en cas d’erreur
+            die('Erreur : '.$e->getMessage());
+        }
+    }
     function sendMail(?string $userMail, ?string $subject, ?string $emailMessage,
         ?string $login_smtp, ?string $mdp_smtp){
             require './vendor/autoload.php';
@@ -83,7 +100,7 @@
                 $mail->Username   = $login_smtp;                     
                 $mail->Password   = $mdp_smtp;                               
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
-                $mail->Port       = 485;                                    
+                $mail->Port       = 465;                                    
                 //Recipients
                 $mail->setFrom($login_smtp, 'Blog Admin');
                 $mail->addAddress($userMail);     

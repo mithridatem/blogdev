@@ -47,7 +47,7 @@
                 //contenu du mail :
                 $emailMessage = "<p>Pour activer votre compte blog, 
                 veuillez cliquer sur le lien ci-dessous</p>
-                <a href='localhost/blog/activate?mail=$mail'>activation du compte</a>";
+                <a href='http://localhost/blog/activate?mail=$mail'>activation du compte</a>";
                 sendMail($mail, $subject, $emailMessage, $login_smtp, $mdp_smtp);
                 //message de confirmation
                 $message = "le compte $nom à été ajouté en BDD";
