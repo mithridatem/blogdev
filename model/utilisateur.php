@@ -73,7 +73,7 @@
     function activeUserByMail($bdd, $mail):void{
         try {
             //stocker et évaluer la requête
-            $req = $bdd->prepare("UPDATE FROM utilisateur SET validate_util =1 
+            $req = $bdd->prepare("UPDATE utilisateur SET validate_util =1 
             WHERE mail_util = ?");
             //binder la valeur $mail au ?
             $req->bindParam(1, $mail, PDO::PARAM_STR);
