@@ -98,7 +98,7 @@
                 $mail->Host       = 'smtp.hostinger.com';                     
                 $mail->SMTPAuth   = true;                                  
                 $mail->Username   = $login_smtp;                     
-                $mail->Password   = $mdp_smtp;                               
+                $mail->Password   = $mdp_smtp;                             
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
                 $mail->Port       = 465;                                    
                 //Recipients

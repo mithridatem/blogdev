@@ -1,3 +1,7 @@
+<?php
+include './view/view_header.php';
+include './view/view_navbar.php';
+?>
 <h3>Ajouter une catégorie</h3>
 <form action="" method="post">
     <p>Saisir le nom de la catégorie :</p>

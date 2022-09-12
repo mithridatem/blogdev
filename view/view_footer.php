@@ -1,10 +1,5 @@
 <footer>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <span><a href=""></a></span>
+    <span><a href=""></a></span>
+    <span><a href=""></a></span>
 </footer>
-    
-</body>
-</html>

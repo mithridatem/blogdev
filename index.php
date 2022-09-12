@@ -12,9 +12,10 @@
 
     //routeur
     switch ($path) {
-        case '/blog/':
+        case '/blogdev/':
             include './home.php';
             break;
+<<<<<<< Updated upstream
         case '/blog/activate':
             include './controller/ctrl_activation.php';
             break;
@@ -22,24 +23,36 @@
             include './controller/ctrl_template.php';
             break;
         case '/blog/connexion':
+=======
+        case '/blogdev/cat':
+            include './api/api_get_all_categorie.php';
+            break;
+        case '/blogdev/activate':
+            include './controller/ctrl_activation.php';
+            break;
+        case '/blogdev/connexion':
+>>>>>>> Stashed changes
             include './controller/ctrl_connexion.php';
             break;
-        case '/blog/deconnexion':
+        case '/blogdev/deconnexion':
             include './controller/ctrl_deconnexion.php';
             break;
-        case '/blog/showAllArticle':
+        case '/blogdev/showAllArticle':
             include './controller/ctrl_show_all_article.php';
             break;
-        case '/blog/createUser':
+        case '/blogdev/createUser':
             include './controller/ctrl_create_user.php';
             break;
-        case '/blog/createArticle':
+        case '/blogdev/createArticle':
             include './controller/ctrl_create_article.php';
             break;
-        case '/blog/createArticleCode':
+        case '/blogdev/createArticleCode':
             include './controller/ctrl_create_article_code.php';
             break;
-        case '/blog/createCategory':
+        case '/blogdev/createArticleApi':
+        include './controller/ctrl_create_article_api.php';
+        break;
+        case '/blogdev/createCategory':
             include './controller/ctrl_create_category.php';
             break;
         default:

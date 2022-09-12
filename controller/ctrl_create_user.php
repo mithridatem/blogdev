@@ -67,6 +67,6 @@
         $message = "Pour ajouter un utilisateur veuillez cliquer sur ajouter";
     }
     //affichage des erreurs
-    echo $message;
+    echo "<div class='message'>$message</div>";
     include './view/view_footer.php';
 ?>
