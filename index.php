@@ -15,6 +15,9 @@
         case '/blog/':
             include './home.php';
             break;
+        case '/blog/template':
+            include './controller/ctrl_template.php';
+            break;
         case '/blog/cat':
             include './api/api_get_all_categorie.php';
             break;
@@ -40,8 +43,8 @@
             include './controller/ctrl_create_article_code.php';
             break;
         case '/blog/createArticleApi':
-        include './controller/ctrl_create_article_api.php';
-        break;
+            include './controller/ctrl_create_article_api.php';
+            break;
         case '/blog/createCategory':
             include './controller/ctrl_create_category.php';
             break;
