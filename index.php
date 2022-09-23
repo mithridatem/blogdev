@@ -15,6 +15,9 @@
         case '/blog/':
             include './home.php';
             break;
+        case '/blog/addCom':
+            include './controller/ctrl_add_com.php';
+            break;
         case '/blog/template':
             include './controller/ctrl_template.php';
             break;

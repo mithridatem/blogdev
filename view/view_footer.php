@@ -9,3 +9,7 @@
 <?php
     $footer = ob_get_clean();
 ?>
+<?php
+    ob_start();
+    $date = date('Y-m-d');
+?>
