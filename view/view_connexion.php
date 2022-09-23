@@ -1,3 +1,6 @@
+<?php
+    ob_start();
+?>
 <h3>Se connecter</h3>
 <form action="" method="post">
     <p>Saisir votre mail:</p>
@@ -6,3 +9,6 @@
     <p><input type="password" name="password_util"></p>
     <p><input type="submit" value="Connexion" name="submit"></p>
 </form>
+<?php
+    $body = ob_get_clean();
+?>

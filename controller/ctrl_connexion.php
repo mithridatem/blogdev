@@ -1,9 +1,10 @@
 <?php
     $message ="";
     include './model/utilisateur.php';
-    include './view/view_header.php';
-    include './view/view_navbar.php';
     include './view/view_connexion.php';
+    include './view/view_template.php';
+    
+    
     //test si le bouton cliqué
     if(isset($_POST['submit'])){
         //test si les champs sont remplis

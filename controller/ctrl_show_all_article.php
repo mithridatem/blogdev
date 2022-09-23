@@ -2,9 +2,9 @@
     $namePage = "show all article";
     //import des ressources
     include './model/article.php';
-    include './view/view_header.php';
-    include './view/view_navbar.php';
     include './view/view_all_article.php';
+    include './view/view_template.php';
+
     //logique de la page
     //stocker la liste des articles dans un tableau
     
@@ -13,14 +13,14 @@
         $liste2 = getAllArticleByFilter($bdd, $_POST['filter']);
         //test si la liste est vide (si il n'y a aucun article)
         if(empty($liste2)){
-            echo '<a href="/addCom?id_art='.$value['id_art'].'"><p>'.$value['id_art'].' '.$value['nom_art'].' 
+            echo '<a href="addCom?id_art='.$value['id_art'].'"><p>'.$value['id_art'].' '.$value['nom_art'].' 
             '.$value['contenu_art'].' '.$value['date_art'].'</p></a>'; 
         }
         //test si il existe des articles dans la table
         else{
             foreach($liste2 as $value){
             //affichage de chaque ligne du tableau
-            echo '<a href="/addCom?id_art='.$value['id_art'].'"><p>'.$value['id_art'].' '.$value['nom_art'].' 
+            echo '<a href="addCom?id_art='.$value['id_art'].'"><p>'.$value['id_art'].' '.$value['nom_art'].' 
             '.$value['contenu_art'].' '.$value['date_art'].'</p></a>'; 
             }
         }
@@ -39,11 +39,10 @@
             //parcourir le tableau ($liste)
             foreach($liste as $value){
                 //affichage de chaque ligne du tableau
-                echo '<p>'.$value['id_art'].' '.$value['nom_art'].' 
-                '.$value['contenu_art'].' '.$value['date_art'].'</p>'; 
+                echo '<a href="addCom?id_art='.$value['id_art'].'"><p>'.$value['id_art'].' '.$value['nom_art'].' 
+                '.$value['contenu_art'].' '.$value['date_art'].'</p></a>'; 
             }
         }
-        
     }
-    include './view/view_footer.php';
+    
 ?>

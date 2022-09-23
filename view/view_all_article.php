@@ -1,3 +1,6 @@
+<?php
+    ob_start();
+?>
 <h2>Bienvenue sur le blog</h2>
 
 <h3>Liste des articles :</h3>
@@ -8,3 +11,6 @@
     </select>
     <input type="submit" value="filtrer" name="submit"> 
 </form>
+<?php
+    $body = ob_get_clean();
+?>
