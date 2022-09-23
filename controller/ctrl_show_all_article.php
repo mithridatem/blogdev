@@ -13,7 +13,8 @@
         $liste2 = getAllArticleByFilter($bdd, $_POST['filter']);
         //test si la liste est vide (si il n'y a aucun article)
         if(empty($liste2)){
-            echo "<p>Il n'y à aucun article</p>"; 
+            echo '<a href="/addCom?id_art='.$value['id_art'].'"><p>'.$value['id_art'].' '.$value['nom_art'].' 
+            '.$value['contenu_art'].' '.$value['date_art'].'</p></a>'; 
         }
         //test si il existe des articles dans la table
         else{
