@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,400;8..144,700&display=swap');
+body{
+    font-family: roboto; 
+    margin:0;
+    padding:0; 
+}
+
+nav,footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(210, 208, 208);
+    height: 8vh;
+    width:100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 150%;
+}
+
+span{
+    display: flex;
+    justify-content: center;
+    width:25%;
+}
+
+span:hover{
+    background-color: black;
+    border-radius: 20px;
+}
+
+span:hover>a{
+    color: white;
+}
+
+.form{
+    height:80%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form>label{
+    margin:2vh 0 0 0;
+}
+
+
+input,textarea{
+    border-radius: 20px;
+    outline: none;
+    border-color: rgb(210, 208, 208);
+    text-align: center;
+    border-style: solid;
+    height: 5vh;
+}
+label{
+    padding-left: 1vw;
+}
+input[type="file"]{
+    padding-left: 1vw;
+    padding-top: 1vh;
+}
+input[type="submit"]{
+    margin-top: 5vh;
+    font-size: 1.1rem;
+}
+footer{
+    position:absolute;
+    bottom:0;
+    width: 100%;
+}
+.userPic{
+    height: 8vh;
+}
+.message{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: rgb(75, 75, 75);
+    font-size: 1.1rem;
+    bottom: 0;
+    transform: translateY(5vh);
+    background-color: rgb(249, 229, 180);
+}

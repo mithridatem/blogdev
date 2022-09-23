@@ -10,6 +10,5 @@
         <p><input type="date" name="date_art"></p>
         <input type="file" name="img_art">
         <p><input type="submit" value="ajouter" name="submit"></p>
-    </form>
-
-    
+</form>
+<script src="./asset/script/script.js" defer></script>    

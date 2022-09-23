@@ -6,35 +6,8 @@
     include './model/categorie.php';
     include './view/view_header.php';
     include './view/view_navbar.php';
-    include './view/view_create_article.php';
-    //construire la liste déroulante
-    $liste = getAllCategory($bdd);
-    //compteur pour liste
-    $cpt= 0;
-    //boucle pour parcourir la liste
-    foreach($liste as $value){
-        //if($value['nom_cat']== 'sport') version avec le nom de la catégorie
-        //test si compteur <1 (ajout de selected)
-        if($cpt <1){
-            //construction des options de la liste
-            echo '<option value = '.$value['id_cat'].' selected>'.$value['nom_cat'].'</option>';
-            $cpt++;
-        }
-        //sinon on affiche l'option sans selected
-        else{
-             //construction des options de la liste
-            echo '<option value = '.$value['id_cat'].'>'.$value['nom_cat'].'</option>';
-        } 
-    }
-    //afficher la fin du formulaire
-    echo '</select></p>
-        <p>Saisir date l\'article</p>
-        <p><input type="date" name="date_art"></p>
-        <input type="file" name="img_art">
-        <p><input type="submit" value="ajouter" name="submit"></p>
-        </form>';  
+    include './view/view_create_article_api.php';
     
-    //test 
     //test si le bouton est cliqué
     if(isset($_POST['submit'])){
         //test si les champs input sont remplis
