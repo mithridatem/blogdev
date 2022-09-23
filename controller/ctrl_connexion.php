@@ -32,6 +32,7 @@
                         $_SESSION['nom'] = $exist[0]['nom_util'];
                         $_SESSION['prenom'] = $exist[0]['prenom_util'];
                         $_SESSION['img'] = $exist[0]['img_util'];
+                        $_SESSION['id'] = $exist[0]['id_util'];
                         //redirection vers ./connexion
                         header('Location: ./connexion');
                     }
