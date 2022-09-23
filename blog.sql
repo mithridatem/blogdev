@@ -1,3 +1,4 @@
+
 CREATE DATABASE blog;
 USE blog;
 CREATE TABLE utilisateur(
@@ -25,14 +26,14 @@ CREATE TABLE categorie(
 	nom_cat varchar(50)
 )Engine=InnoDB;
 CREATE TABLE role(
-	id_role int primary key auto_increment null,
+	id_role int primary key auto_increment not null,
 	nom_role varchar(50)
 )Engine=InnoDB;
 CREATE TABLE ajouter(
-	id_util int null,
-	id_art int null,
+	id_util int not null,
+	id_art int not null,
     com varchar(255) null,
-    date_com date null,
+    date_com date not null,
     validate_com tinyint(1) null,
     primary key(id_util, id_art, date_com)
 )Engine=InnoDB;

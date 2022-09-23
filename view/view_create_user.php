@@ -1,13 +1,16 @@
-<h3>Ajouter un compte :</h3>
-<form action="" method="post" enctype="multipart/form-data">
-    <p>Saisir votre nom :</p>
-    <p><input type="text" name="nom_util"></p>
-    <p>Saisir votre prénom :</p>
-    <p><input type="text" name="prenom_util"></p>
-    <p>Saisir votre mail :</p>
-    <p><input type="email" name="mail_util"></p>
-    <p>Saisir votre password :</p>
-    <p><input type="password" name="password_util"></p>
-    <p><input type="file" name="img_util"></p>
-    <p><input type="submit" value="ajouter" name="submit"></p>
-</form>
+<div class="form">
+    <h3>Ajouter un compte :</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label>Saisir votre nom :</label>
+        <input type="text" name="nom_util"> 
+        <label>Saisir votre prénom :</label>
+        <input type="text" name="prenom_util">  
+        <label>Saisir votre mail :</label>
+        <input type="email" name="mail_util">   
+        <label>Saisir votre password :</label>
+        <input type="password" name="password_util">    
+        <label>Choisir un fichier :</label>
+        <input type="file" name="img_util"> 
+        <input type="submit" value="ajouter" name="submit"> 
+    </form>
+</div>

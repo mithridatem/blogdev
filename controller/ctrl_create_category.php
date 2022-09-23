@@ -5,8 +5,6 @@
         $message = "";
             //import des ressources
         include './model/categorie.php';
-        include './view/view_header.php';
-        include './view/view_navbar.php';
         include './view/view_create_category.php';
 
         //test si le bouton submit est cliqué 
