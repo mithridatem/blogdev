@@ -53,7 +53,7 @@
         try {
             //stocker et évaluer la requête
             $req = $bdd->prepare("SELECT id_util, nom_util, prenom_util,
-            mail_util, password_util, img_util FROM utilisateur WHERE mail_util = ?");
+            mail_util, password_util, img_util, validate_util FROM utilisateur WHERE mail_util = ?");
             //binder la valeur $mail au ?
             $req->bindParam(1, $mail, PDO::PARAM_STR);
             //exécuter la requête
@@ -73,7 +73,7 @@
     function activeUserByMail($bdd, $mail):void{
         try {
             //stocker et évaluer la requête
-            $req = $bdd->prepare("UPDATE utilisateur SET validate_util =1 
+            $req = $bdd->prepare("UPDATE utilisateur SET validate_util = 1 
             WHERE mail_util = ?");
             //binder la valeur $mail au ?
             $req->bindParam(1, $mail, PDO::PARAM_STR);

@@ -8,13 +8,15 @@
     //test du paramètre get 
     if(isset($_GET['mail']) AND $_GET['mail'] !=""){
         //stocker $_GET['mail'] dans une variable
-        $mail = $_GET['mail'];
+        $mail = cleanInput($_GET['mail']);
         //récupérer l'utilisateur par son mail
         $exist = showUserByMail($bdd, $mail);
         //tester si $exist est non vide
         if(!empty($exist)){
             activeUserByMail($bdd, $mail);
             $message = 'le compte à été activé';
+            //refresh au bout de 2 secondes
+            header('refresh: 2; url=./connexion');
         }
         else{
             $message = "les informations du compte sont invalides";
