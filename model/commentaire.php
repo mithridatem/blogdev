@@ -16,5 +16,4 @@
             die('Erreur : '.$e->getMessage());
         }
     }
-
 ?>
