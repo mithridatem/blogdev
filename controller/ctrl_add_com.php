@@ -17,10 +17,6 @@
                     //nettoyer les inputs
                     $com = cleanInput($_POST['com']);
                     $dateCom = cleanInput($_POST['date_com']);
-                    //ajouter le commentaire en bdd
-                    echo $_SESSION['id'];
-                    echo '<br>';
-                    echo $_GET['id_art'];
                     $commentaire = new ManagerAjouter();
                     $commentaire->setIdArt($_GET['id_art']);
                     $commentaire->setIdUtil($_SESSION['id']);
